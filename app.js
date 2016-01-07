@@ -6,7 +6,7 @@ var hbs = require('hbs');
 var app = express();
 
 app.set('view engine', 'hbs');
-app.set('trust proxy', 'loopback');
+app.enable('trust proxy');
 
 function isSetup() {
   return (process.env.CONSUMER_KEY != null) && (process.env.CONSUMER_SECRET != null);
@@ -66,8 +66,12 @@ app.get('/setup', function(req, res) {
     res.redirect('/');
   }
   else {
-    var isRemote = (req.hostname.indexOf('localhost') != 0);
-    res.render('setup', { isRemote: isRemote, oauthCallbackUrl: oauthCallbackUrl(req) });
+    var isLocal = (req.hostname.indexOf('localhost') == 0);
+    var herokuApp = null;
+    if (req.hostname.indexOf('.herokuapp.com') > 0) {
+      herokuApp = req.hostname.replace(".herokuapp.com", "");
+    }
+    res.render('setup', { isLocal: isLocal, oauthCallbackUrl: oauthCallbackUrl(req), herokuApp: herokuApp});
   }
 });
 

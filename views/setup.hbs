@@ -2,7 +2,7 @@
 
 <ol>
   <li>
-    Setup an OAUTH on Salesforce
+    Setup an OAUTH on Salesforce:
     <ol>
       <li><a href="https://login.salesforce.com/app/mgmt/forceconnectedapps/forceAppEdit.apexp">Create a new Connected App on Salesforce</a></li>
       <li>Fill in the <em>Connected App Name</em>, <em>API Name</em>, and <em>Contact Email</em> fields.</li>
@@ -12,9 +12,16 @@
     </ol>
   </li>
   <li>
-    {{#if isRemote}}
-      Blah
-    {{else}}
+    {{#if herokuApp}}
+      Set the <em>Consumer Key</em> and <em>Consumer Secret</em> values in your Heroku app's config:
+      <ol>
+        <li><a href="https://dashboard.heroku.com/apps/{{herokuApp}}/settings" target="_blank">Open your app's settings</a></li>
+        <li>Click <em>Reveal Config Vars</em></li>
+        <li>Add a new config var named <code>CONSUMER_KEY</code> with the value of your Connected App's Consumer Key</li>
+        <li>Add a new config var named <code>CONSUMER_SECRET</code> with the value of your Connected App's Consumer Secret</li>
+      </ol>
+    {{/if}}
+    {{#if isLocal}}
       Create a new <code>.env</code> file in the root of your project directory containing the following with your newly created <em>Consumer Key</em> and <em>Consumer Secret</em> values:
       <pre><code># DO NOT SHARE THIS FILE OR PUT IT INTO YOUR SCM
 CONSUMER_KEY=YOUR_CONSUMER_KEY
