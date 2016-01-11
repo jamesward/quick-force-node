@@ -3,13 +3,5 @@
   "description": "The quickest and easiest way to start a Node web app that uses the Force.com REST APIs",
   "repository": "https://github.com/jamesward/quick-force-node",
   "website": "http://www.jamesward.com",
-  "keywords": ["node", "salesforce", "nforce"],
-  "env": {
-    "CLIENT_ID": {
-      "description": "Your Connected App's Consumer Key."
-    },
-    "CLIENT_SECRET": {
-      "description": "Your Connected App's Consumer Secret."
-    }
-  }
+  "keywords": ["node", "salesforce", "nforce"]
 }
