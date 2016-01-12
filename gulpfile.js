@@ -1,7 +1,14 @@
 var gulp = require('gulp');
 
 function loadEnv() {
-  require('gulp-env')({file: '.env', type: '.ini'});
+  try {
+    if (require('fs').statSync('.env').isFile()) {
+      require('gulp-env')({file: '.env', type: '.ini'});
+    }
+  }
+  catch (e) {
+    // ignored
+  }
 }
 
 
