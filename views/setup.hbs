@@ -1,16 +1,19 @@
 <h2>You need to setup OAUTH</h2>
 
 <ol>
-  <li>
-    Setup an OAUTH on Salesforce:
-    <ol>
-      <li><a href="https://login.salesforce.com/app/mgmt/forceconnectedapps/forceAppEdit.apexp">Create a new Connected App on Salesforce</a></li>
-      <li>Fill in the <em>Connected App Name</em>, <em>API Name</em>, and <em>Contact Email</em> fields.</li>
-      <li>Select <em>Enable OAuth Settings</em> and enter the following <em>Callback URL</em>: <code>{{oauthCallbackUrl}}</code></li>
-      <li>Select <em>Full access (full)</em> from the list of OAuth Scopes and click <em>Add</em></li>
-      <li>Click <em>Save</em> and them <em>Continue</em> to complete the creation of the new Connected App</li>
-    </ol>
-  </li>
+  {{#if herokuApp}}
+    <li>
+      Setup an OAUTH on Salesforce:
+      <ol>
+        <li><a href="https://login.salesforce.com/app/mgmt/forceconnectedapps/forceAppEdit.apexp">Create a new Connected App on Salesforce</a></li>
+        <li>Fill in the <em>Connected App Name</em>, <em>API Name</em>, and <em>Contact Email</em> fields.</li>
+        <li>Select <em>Enable OAuth Settings</em> and enter the following <em>Callback URLs</em>: <pre><code>{{oauthCallbackUrl}}
+http://localhost:5000</code></pre></li>
+        <li>Select <em>Full access (full)</em> from the list of OAuth Scopes and click <em>Add</em></li>
+        <li>Click <em>Save</em> and them <em>Continue</em> to complete the creation of the new Connected App</li>
+      </ol>
+    </li>
+  {{/if}}
   <li>
     {{#if herokuApp}}
       Set the <em>Consumer Key</em> and <em>Consumer Secret</em> values in your Heroku app's config:
