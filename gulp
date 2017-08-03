@@ -287,6 +287,8 @@ function run_gulp() {
   download_node
   download_gulp
 
+  export PATH=$PATH:$(dirname $NODE_BIN)
+
   $NODE_BIN $GULP_BIN $*
 }
 
