@@ -1,5 +1,4 @@
-var express = require('express');
-var path = require('path');
+var express = require('express');;
 var nforce = require('nforce');
 var hbs = require('hbs');
 
