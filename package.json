@@ -8,7 +8,7 @@
     "node": "12.16.2"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-util": "^3.0.7",
     "gulp-atom-downloader": "^0.2.1",
     "gulp-nodemon": "^2.0.6",
